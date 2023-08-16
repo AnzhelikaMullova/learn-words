@@ -1,0 +1,21 @@
+.table{
+   
+    &_word{
+        border: 1px solid red;
+        width: 70vw;
+        margin-left: 100px;
+        padding: 20px;
+    }
+    &_tr{
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+    &_th{
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+}
