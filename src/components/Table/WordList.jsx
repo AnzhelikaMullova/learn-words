@@ -3,6 +3,9 @@ import data from '../../data.json'
 import Table from './Table'
 
 export default function WordList() {
+
+
+
     return (
         <div >
             <h1>Список слов</h1>
@@ -13,6 +16,7 @@ export default function WordList() {
                         transcription={item.transcription}
                         russian={item.russian}
                         isSelected={item.isSelected}
+
                     />
 
                 ))

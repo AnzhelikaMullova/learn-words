@@ -4,4 +4,20 @@ $colorGreen: #7EB693;
     border: 1px solid black;
     display:  flex;
     flex-wrap: wrap;
+
+    &_button{
+        width: 120px;
+        height: 70px;
+     margin: 120px 30px;
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 23px;
+        color: white;
+        background-color: $colorGreen;
+        border-color:$colorGreen;
+        border-radius: 15px;
+
+    }
 }
