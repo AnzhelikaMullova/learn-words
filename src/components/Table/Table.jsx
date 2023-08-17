@@ -20,7 +20,6 @@ export default function Table(props) {
         setOpenInput(!openInput)
     }
 
-    //функция удаления строчки из таблицы
 
 
     return (
@@ -33,7 +32,7 @@ export default function Table(props) {
                             <p className={st.table_tr}>{props.transcription}</p>
                             <p className={st.table_th}>{props.russian}</p>
                             <button className={st.table_button} onClick={() => { setOpenInput(!openInput) }}>Редактировать</button>
-                            <button className={st.table_button} onClick={deleteLine}>Удалить</button>
+                            <button className={st.table_button}>Удалить</button>
                         </div >
                     ) :
                     (

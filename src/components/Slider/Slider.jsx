@@ -11,23 +11,25 @@ export default function Slider() {
         setCards(data)
     }, [])
 
-    function handleClickPrev(item) {
+    function handleClickPrev(item) { // функция которая листакт слайдер назад
         let copyCount = count// создаем переменную в которой хванится номер 
         copyCount-- // уменьшаем на 1
-        // if (copyCount === data.length) {
-        //     copyCount = data.length - 1;
-        // }
-        setCount(copyCount)
+        if (copyCount < cards.length) { // делаем проверку если copyCount меньше длинны массива
+            copyCount = cards.length - 1; // то присваемваем ему последнюю карточку массива
+        }
+        setCount(copyCount) // записываем в состояние
     }
 
-    function handleClickNext() {
-        let copyCount = count
-        // copyCount++
-        // if (copyCount === data.length) {
-        //     copyCount = data.length + 1;
-        // }
-        setCount(copyCount)
-
+    function handleClickNext() { // функция которая листает слайдер вперед
+        let copyCount = count  //переменной copyCount присваим номер каунта
+        copyCount++         //увеличиваем на уедицу чтобы перелеснуть
+        if (copyCount > cards.length) { // делаем проверку если индекс больше длинны нашего массива
+            copyCount = 0;    // то присваиваем индекс ноль чтобы получить первую карточку
+        }
+        setCount(copyCount) // записываем в состояние
+    }
+    if (cards.lenght == 0) {
+        return <h1>Loading...</h1>
     }
     return (
         <div className={st.slider}>

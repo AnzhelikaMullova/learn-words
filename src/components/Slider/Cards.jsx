@@ -15,10 +15,10 @@ export default function Cards(props) {
 
     return (
         <div className={st.cards}>
-            <p className={st.cards_english}>{props.english}</p>
-            <p className={st.cards_transcription}>{props.transcription}</p>
+            <p className={st.cards_english}>{props.item.english}</p>
+            <p className={st.cards_transcription}>{props.item.transcription}</p>
             {
-                showTranslation == false ? <button onClick={handleShowTranslation} className={st.cards_button}>Показать перевод</button> : <p className={st.cards_transcription}>{props.russian}</p>
+                showTranslation == false ? <button onClick={handleShowTranslation} className={st.cards_button}>Показать перевод</button> : <p className={st.cards_transcription}>{props.item.russian}</p>
             }
 
             <p>Выученно: 0 слов</p>
