@@ -10,21 +10,28 @@ export default function Slider() {
     useEffect(() => {
         setCards(data)
     }, [])
-
+    let copyCount = count// создаем переменную в которой хванится номер
     function handleClickPrev(item) { // функция которая листакт слайдер назад
-        let copyCount = count// создаем переменную в которой хванится номер 
-        copyCount-- // уменьшаем на 1
-        if (copyCount < cards.length) { // делаем проверку если copyCount меньше длинны массива
-            copyCount = cards.length - 1; // то присваемваем ему последнюю карточку массива
+
+        if (copyCount > 0) {
+
+            copyCount-- // уменьшаем на 1
         }
-        setCount(copyCount) // записываем в состояние
+        else {
+            copyCount = cards.length
+        }
+        setCount(copyCount)
+
     }
 
     function handleClickNext() { // функция которая листает слайдер вперед
-        let copyCount = count  //переменной copyCount присваим номер каунта
-        copyCount++         //увеличиваем на уедицу чтобы перелеснуть
-        if (copyCount > cards.length) { // делаем проверку если индекс больше длинны нашего массива
-            copyCount = 0;    // то присваиваем индекс ноль чтобы получить первую карточку
+
+        if (copyCount < cards.length) {
+
+            copyCount++         //увеличиваем на уедицу чтобы перелеснуть
+        }
+        else {
+            copyCount = 0
         }
         setCount(copyCount) // записываем в состояние
     }
@@ -33,7 +40,7 @@ export default function Slider() {
     }
     return (
         <div className={st.slider}>
-            <button onClick={handleClickPrev} className={st.slider_button}>Предвущая карточка </button>
+            <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
             <Cards item={cards[count]} />
             <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
         </div>
