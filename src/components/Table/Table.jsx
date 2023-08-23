@@ -20,7 +20,11 @@ export default function Table(props) {
     function cancelEditing() { //функция отмена редактировнаия
         setOpenInput(!openInput)
     }
-    function deleteLine(event) {
+    function deleteLine(id) {
+        const dataRow = [...words];
+        dataRow.splice(id, 1);
+        setWords(dataRow);
+
 
     }
 
@@ -38,7 +42,7 @@ export default function Table(props) {
                             <p className={st.table_tr}>{props.transcription}</p>
                             <p className={st.table_th}>{props.russian}</p>
                             <button className={st.table_button} onClick={() => { setOpenInput(!openInput) }}>Редактировать</button>
-                            <button className={st.table_button} onClick={deleteLine()}>Удалить</button>
+                            <button className={st.table_button} onClick={() => deleteLine(id)}>Удалить</button>
                         </div >
                     ) :
                     (
