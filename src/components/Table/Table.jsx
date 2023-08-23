@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import st from './table.module.scss';
 
 export default function Table(props) {
-
+    const [words, setWords] = useState(false)
     const [openInput, setOpenInput] = useState(true)
     const [valueEnglish, setValueEnglish] = useState('')
     const [valueTranscription, setValueTranscription] = useState('')
@@ -12,6 +12,7 @@ export default function Table(props) {
 
 
     useEffect(() => {
+        setWords(data)
         setValueEnglish(props.english)
         setValueTranscription(props.transcription)
         setValueRussian(props.russian)
@@ -19,8 +20,13 @@ export default function Table(props) {
     function cancelEditing() { //функция отмена редактировнаия
         setOpenInput(!openInput)
     }
+    function deleteLine(event) {
 
+    }
 
+    if (!words) {
+        return <h1>Loading...</h1>
+    }
 
     return (
         < div >
@@ -32,7 +38,7 @@ export default function Table(props) {
                             <p className={st.table_tr}>{props.transcription}</p>
                             <p className={st.table_th}>{props.russian}</p>
                             <button className={st.table_button} onClick={() => { setOpenInput(!openInput) }}>Редактировать</button>
-                            <button className={st.table_button}>Удалить</button>
+                            <button className={st.table_button} onClick={deleteLine()}>Удалить</button>
                         </div >
                     ) :
                     (
@@ -41,7 +47,7 @@ export default function Table(props) {
                             <input type='text' defaultValue={valueTranscription} />
                             <input type='text' defaultValue={valueRussian} />
 
-                            <button >Отмена редактирования</button>
+                            <button onClick={cancelEditing} >Отмена редактирования</button>
                             <button>Сохранить изменения</button>
                         </div>
                     )

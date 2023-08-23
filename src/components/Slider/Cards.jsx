@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import st from './cards.module.scss';
 
 
@@ -6,10 +6,18 @@ export default function Cards(props) {
     console.log(props);
 
 
-    const [showTranslation, setShowTranslation] = useState(false);
+    const [showTranslation, setShowTranslation] = useState(false);// состояние перевод не показан
     const handleShowTranslation = () => {
         setShowTranslation(!showTranslation);
     };
+    useEffect(() => {  //use Effect следит за изменением пропсов
+        if (!props.item) {
+            return;         //если пропс не менялся, то return - сразу выйти из useEffect и ничего не делать
+        }
+        return () => {
+            setShowTranslation(false)
+        };
+    }, [props.item]);
 
 
 

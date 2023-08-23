@@ -12,6 +12,7 @@ export default function WordList() {
             {
                 data.map((item) => (
                     <Table
+                        key={item.id}
                         english={item.english}
                         transcription={item.transcription}
                         russian={item.russian}
