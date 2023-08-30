@@ -1,18 +1,12 @@
-import data from '../../data.json'
 import { useEffect, useState } from 'react';
 import st from './table.module.scss';
-
-export default function Table(props) {
-    const [words, setWords] = useState(false)
+export default function Table(props, editWordsPost) {
+    // const [english, transcription, russian, id] = item
     const [openInput, setOpenInput] = useState(true)
     const [valueEnglish, setValueEnglish] = useState('')
     const [valueTranscription, setValueTranscription] = useState('')
     const [valueRussian, setValueRussian] = useState('')
-
-
-
     useEffect(() => {
-        setWords(data)
         setValueEnglish(props.english)
         setValueTranscription(props.transcription)
         setValueRussian(props.russian)
@@ -20,16 +14,19 @@ export default function Table(props) {
     function cancelEditing() { //функция отмена редактировнаия
         setOpenInput(!openInput)
     }
-    function deleteLine(id) {
-        const dataRow = [...words];
-        dataRow.splice(id, 1);
-        setWords(dataRow);
-
-
+    function handleEnglish(e) {
+        setValueEnglish(e.target.value)
+    }
+    function handleTranscription(e) {
+        setValueTranscription(e.target.value)
     }
 
-    if (!words) {
-        return <h1>Loading...</h1>
+    function handleRussian(e) {
+        setValueRussian(e.target.value)
+    }
+
+    function savePost() {
+        editWordsPost(valueEnglish, valueTranscription, valueRussian)
     }
 
     return (
@@ -42,27 +39,19 @@ export default function Table(props) {
                             <p className={st.table_tr}>{props.transcription}</p>
                             <p className={st.table_th}>{props.russian}</p>
                             <button className={st.table_button} onClick={() => { setOpenInput(!openInput) }}>Редактировать</button>
-                            <button className={st.table_button} onClick={() => deleteLine(id)}>Удалить</button>
+                            <button className={st.table_button} onClick={() => props.deleteLine(props.index)}>Удалить</button>
                         </div >
                     ) :
                     (
                         <div>
-                            <input type='text' defaultValue={valueEnglish} />
-                            <input type='text' defaultValue={valueTranscription} />
-                            <input type='text' defaultValue={valueRussian} />
-
+                            <input type='text' value={valueEnglish} onChange={handleEnglish} />
+                            <input type='text' value={valueTranscription} onChange={handleTranscription} />
+                            <input type='text' value={valueRussian} onChange={handleRussian} />
                             <button onClick={cancelEditing} >Отмена редактирования</button>
-                            <button>Сохранить изменения</button>
+                            <button onClick={savePost}>Сохранить изменения</button>
                         </div>
                     )
             }
-
-
-
-
-
         </div >
-
-
     )
 }

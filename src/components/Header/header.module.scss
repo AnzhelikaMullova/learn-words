@@ -1,36 +1,38 @@
 $colorSgrey: #274C5B;
 $colorGreen: #7EB693;
 .header {
-    display: flex;
-    margin: 0 auto;
-    padding: 15px;
+display: flex;
+margin: 0 auto;
+padding: 15px;
 
-    &_logo {
-        margin-left: 55px;
-        width: 170px; 
-    }
 
-    &_nav {
-     width: 70vw;
+&_logo {
+margin-left: 55px;
+width: 170px; 
+}
 
-        &_list {
-            display: flex;
-            padding: 15px;
-            justify-content: space-around;
-            list-style: none;
+&_nav {
+width: 70vw;
 
-            &_item {
-                font-family: 'Mulish', sans-serif;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 20px;
-                line-height: 23px;
-                color: $colorSgrey;
-                text-decoration: none;
-            }
-            &_item:hover {
-                color: $colorGreen;
-            }
-        }
-    }
+
+&_list {
+display: flex;
+padding: 15px;
+justify-content: space-around;
+list-style: none;
+
+&_item {
+font-family: 'Mulish', sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 23px;
+color: $colorSgrey;
+text-decoration: none;
+}
+&_item:hover {
+color: $colorGreen;
+}
+}
+}
 }

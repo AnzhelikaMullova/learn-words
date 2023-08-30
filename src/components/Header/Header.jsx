@@ -18,17 +18,18 @@ export default function Header() {
 
 
         <div>
-            <header>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
+            <header className={st.header}>
+                <img className={st.header_logo} src={logo} alt="logo" />
+                <nav className={st.header_nav}>
+                    <ul className={st.header_nav_list}>
+                        <li >
+                            <Link className={st.header_nav_list_item} to="/">Home</Link>
+                        </li>
+                        <li >
+                            <Link className={st.header_nav_list_item} to="/cards">Карточки слов</Link>
                         </li>
                         <li>
-                            <Link to="/cards">Карточки слов</Link>
-                        </li>
-                        <li>
-                            <Link to="/listwords">Список слов</Link>
+                            <Link className={st.header_nav_list_item} to="/listwords">Список слов</Link>
                         </li>
 
                     </ul>
