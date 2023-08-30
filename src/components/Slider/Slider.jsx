@@ -2,6 +2,7 @@ import st from './slider.module.scss';
 import data from '../../data.json';
 import Cards from './Cards';
 import { useEffect, useState } from 'react';
+import { HashRouter } from 'react-router-dom';
 export default function Slider() {
     const [cards, setCards] = useState(false)
     const [count, setCount] = useState(0)// состояние счетчика карты, берем нулевой индекс изначально
@@ -34,11 +35,13 @@ export default function Slider() {
         return <h1>Loading...</h1>
     }
     return (
-        <div className={st.slider}>
-            {console.log(cards)}
-            <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
-            <Cards item={cards[count]} />
-            <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
-        </div>
+        <HashRouter>
+            <div className={st.slider}>
+                {console.log(cards)}
+                <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
+                <Cards item={cards[count]} />
+                <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
+            </div>
+        </HashRouter>
     )
 }

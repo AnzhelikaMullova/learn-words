@@ -11,7 +11,7 @@ export default function WordList() {
         setWords(dataRow);
     }
     function editWordsPost(english, transcription, russian) {
-        console.log();
+        console.log(english, transcription, russian);
     }
     if (!words) {
         return <h1>Loading...</h1>
