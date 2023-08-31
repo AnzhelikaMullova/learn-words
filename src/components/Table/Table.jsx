@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import st from './table.module.scss';
-export default function Table(props, item, editWordsPost) {
-    // const [english, transcription, russian] = item
+export default function Table(props) {
     const [openInput, setOpenInput] = useState(true)
     const [valueEnglish, setValueEnglish] = useState('')
     const [valueTranscription, setValueTranscription] = useState('')
@@ -10,7 +9,7 @@ export default function Table(props, item, editWordsPost) {
         setValueEnglish(props.english)
         setValueTranscription(props.transcription)
         setValueRussian(props.russian)
-    }, [props, item])
+    }, [props])
     function cancelEditing() { //функция отмена редактировнаия
         setOpenInput(!openInput)
     }
@@ -26,7 +25,7 @@ export default function Table(props, item, editWordsPost) {
     }
 
     function savePost() {
-        editWordsPost(valueEnglish, valueTranscription, valueRussian)
+        console.log(props.editWordsPost(valueEnglish, valueTranscription, valueRussian, props.id));
     }
 
     return (
@@ -38,8 +37,6 @@ export default function Table(props, item, editWordsPost) {
                                 <input type='text' />
                                 <button >Добавить</button>
                             </div> */}
-
-
             {
                 openInput ?
                     (

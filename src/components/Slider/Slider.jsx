@@ -35,13 +35,13 @@ export default function Slider() {
         return <h1>Loading...</h1>
     }
     return (
-        <HashRouter>
-            <div className={st.slider}>
-                {console.log(cards)}
-                <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
-                <Cards item={cards[count]} />
-                <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
-            </div>
-        </HashRouter>
+
+        <div className={st.slider}>
+            {console.log(cards)}
+            <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
+            <Cards item={cards[count]} />
+            <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
+        </div>
+
     )
 }

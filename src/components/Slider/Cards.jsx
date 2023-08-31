@@ -3,8 +3,6 @@ import st from './cards.module.scss';
 
 
 export default function Cards(props) {
-    console.log(props);
-
 
     const [showTranslation, setShowTranslation] = useState(false);// состояние перевод не показан
     const handleShowTranslation = () => {
