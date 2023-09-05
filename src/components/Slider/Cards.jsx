@@ -6,6 +6,7 @@ export default function Cards(props) {
 
     const [showTranslation, setShowTranslation] = useState(false);// состояние перевод не показан
     const handleShowTranslation = () => {
+
         setShowTranslation(!showTranslation);
     };
     useEffect(() => {  //use Effect следит за изменением пропсов

@@ -25,18 +25,20 @@ export default function Table(props) {
     }
 
     function savePost() {
-        console.log(props.editWordsPost(valueEnglish, valueTranscription, valueRussian, props.id));
+        props.editWordsPost(valueEnglish, valueTranscription, valueRussian, props.id);
+        setOpenInput(!openInput)
     }
+
 
     return (
         < div >
-            {/* <div>
-                                <p>Добавить новое слово</p>
-                                <input type='text' />
-                                <input type='text' />
-                                <input type='text' />
-                                <button >Добавить</button>
-                            </div> */}
+            <div>
+                <p>Добавить новое слово</p>
+                <input type="text" value={inputValue} onChange={handleInputChange} />
+                <input type="text" value={inputValue} onChange={handleInputChange} />
+                <input type="text" value={inputValue} onChange={handleInputChange} />
+                <button onClick={handleAddRow}>Добавить</button>
+            </div>
             {
                 openInput ?
                     (

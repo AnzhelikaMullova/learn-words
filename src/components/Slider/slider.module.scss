@@ -1,9 +1,9 @@
 $colorSgrey: #274C5B;
 $colorGreen: #7EB693;
 .slider{
-    border: 1px solid black;
     display:  flex;
     flex-wrap: wrap;
+    margin: 100px 330px;
 
     &_button{
         width: 120px;

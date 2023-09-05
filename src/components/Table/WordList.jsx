@@ -4,6 +4,18 @@ import { useState } from 'react';
 export default function WordList() {
 
     const [words, setWords] = useState(data);
+    const [inputValue, setInputValue] = useState('');// состояние  inputValue, которое хранит текущее значение ввода.
+    const handleInputChange = (e) => { //Функция handleInputChange обрабатывает изменения в поле ввода и обновляет состояние inputValue.
+        setInputValue(e.target.value);
+    };
+
+    const handleAddRow = () => { //
+        if (inputValue.trim() !== '') {
+            const newRow = { id: Date.now(), value: inputValue };
+            setWords([...words, newRow]);
+            setInputValue('');
+        }
+    };
 
     function deleteLine(id) {
         const dataRow = [...words];
@@ -42,7 +54,9 @@ export default function WordList() {
                         index={index}
                         deleteLine={deleteLine}
                         editWordsPost={editWordsPost}
-                    // id={props.id}
+                        id={item.id}
+                        handleAddRow={handleAddRow}
+                        handleInputChange={handleInputChange}
                     />
                 ))
             }
