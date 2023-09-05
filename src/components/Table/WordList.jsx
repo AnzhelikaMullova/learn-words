@@ -1,81 +1,82 @@
-import data from '../../data.json'
-import Table from './Table'
-import { useState } from 'react';
+import React, { useState } from 'react'; // Импорт React и useState
+import data from '../../data.json';
+import Table from './Table';
 export default function WordList() {
-
     const [words, setWords] = useState(data);
-    const [inputValueEnglish, setInputValueEnglish] = useState('');// состояние  inputValue, которое хранит текущее значение ввода.
+    const [inputValueEnglish, setInputValueEnglish] = useState('');
     const [inputValueTranscription, setInputValueTranscription] = useState('');
     const [inputValueRussian, setInputValueRussian] = useState('');
-    const handleInputChange = (e) => { //Функция handleInputChange обрабатывает изменения в поле ввода и обновляет состояние inputValue.
+    const handleInputChangeEnglish = (e) => {
         setInputValueEnglish(e.target.value);
-        setInputValueTranscription(e.target.value);
-        setInputValueRussian(e.target.value);
-
     };
-
-    const handleAddRow = () => { //
-        if (inputValueEnglish.trim() || inputValueTranscription.trim() || inputValueRussian.trim() !== '') {
-            const newRow = { id: Date.now(), value: { inputValueEnglish, inputValueTranscription, inputValueRussian } };
+    const handleInputChangeTranscription = (e) => {
+        setInputValueTranscription(e.target.value);
+    };
+    const handleInputChangeRussian = (e) => {
+        setInputValueRussian(e.target.value);
+    };
+    const handleAddRow = () => {
+        if (
+            inputValueEnglish.trim() !== '' ||
+            inputValueTranscription.trim() !== '' ||
+            inputValueRussian.trim() !== ''
+        ) {
+            const newRow = {
+                id: Date.now(),
+                english: inputValueEnglish,
+                transcription: inputValueTranscription,
+                russian: inputValueRussian,
+            };
             setWords([...words, newRow]);
             setInputValueEnglish('');
             setInputValueTranscription('');
             setInputValueRussian('');
-
         }
     };
-
     function deleteLine(id) {
         const dataRow = [...words];
         dataRow.splice(id, 1);
         setWords(dataRow);
     }
     function editWordsPost(english, transcription, russian, id) {
-
-        const copyWords = [...words]
-        const resultEditWords = copyWords.map(item => {
-            if (item.id == id) { //если id массива будет равен передаваемому массиву то
-                item.english = english
-                item.transcription = transcription
-                item.russian = russian
-                return item
+        const updatedWords = words.map(item => {
+            if (item.id === id) {
+                return {
+                    ...item,
+                    english,
+                    transcription,
+                    russian,
+                };
             }
-            return item
-        })
-        setWords(resultEditWords)
+            return item;
+        });
+        setWords(updatedWords);
     }
     if (!words) {
-        return <h1>Loading...</h1>
+        return <h1>Loading...</h1>;
     }
-
     return (
-        <div >
+        <div>
             <h1>Список слов</h1>
             <div>
                 <p>Добавить новое слово</p>
-                <input type="text" value={inputValueEnglish} onChange={handleInputChange} />
-                <input type="text" value={inputValueTranscription} onChange={handleInputChange} />
-                <input type="text" value={inputValueRussian} onChange={handleInputChange} />
+                <input type="text" value={inputValueEnglish} onChange={handleInputChangeEnglish} />
+                <input type="text" value={inputValueTranscription} onChange={handleInputChangeTranscription} />
+                <input type="text" value={inputValueRussian} onChange={handleInputChangeRussian} />
                 <button onClick={handleAddRow}>Добавить</button>
             </div>
-            {
-                words.map((item, index, id) => (
-                    <Table
-                        key={item.id}
-                        english={item.english}
-                        transcription={item.transcription}
-                        russian={item.russian}
-                        isSelected={item.isSelected}
-                        index={index}
-                        deleteLine={deleteLine}
-                        editWordsPost={editWordsPost}
-                        id={item.id}
-                        handleAddRow={handleAddRow}
-                        handleInputChange={handleInputChange}
-
-                    />
-                ))
-            }
+            {words.map((item, index) => (
+                <Table
+                    key={item.id}
+                    english={item.english}
+                    transcription={item.transcription}
+                    russian={item.russian}
+                    index={index}
+                    deleteLine={deleteLine}
+                    editWordsPost={editWordsPost}
+                    id={item.id}
+                />
+            ))}
         </div>
-    )
+    );
 }
