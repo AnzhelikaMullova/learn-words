@@ -5,6 +5,7 @@ export default function Table(props) {
     const [valueEnglish, setValueEnglish] = useState('')
     const [valueTranscription, setValueTranscription] = useState('')
     const [valueRussian, setValueRussian] = useState('')
+
     useEffect(() => {
         setValueEnglish(props.english)
         setValueTranscription(props.transcription)
@@ -34,10 +35,10 @@ export default function Table(props) {
         < div >
             <div>
                 <p>Добавить новое слово</p>
-                <input type="text" value={inputValue} onChange={handleInputChange} />
-                <input type="text" value={inputValue} onChange={handleInputChange} />
-                <input type="text" value={inputValue} onChange={handleInputChange} />
-                <button onClick={handleAddRow}>Добавить</button>
+                <input type="text" value={props.inputValue} onChange={props.handleInputChange} />
+                <input type="text" value={props.inputValue} onChange={props.handleInputChange} />
+                <input type="text" value={props.inputValue} onChange={props.handleInputChange} />
+                <button onClick={props.handleAddRow}>Добавить</button>
             </div>
             {
                 openInput ?

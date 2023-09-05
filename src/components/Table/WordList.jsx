@@ -5,6 +5,7 @@ export default function WordList() {
 
     const [words, setWords] = useState(data);
     const [inputValue, setInputValue] = useState('');// состояние  inputValue, которое хранит текущее значение ввода.
+
     const handleInputChange = (e) => { //Функция handleInputChange обрабатывает изменения в поле ввода и обновляет состояние inputValue.
         setInputValue(e.target.value);
     };
@@ -12,7 +13,7 @@ export default function WordList() {
     const handleAddRow = () => { //
         if (inputValue.trim() !== '') {
             const newRow = { id: Date.now(), value: inputValue };
-            setWords([...words, newRow]);
+            console.log(setWords([...words, newRow]));
             setInputValue('');
         }
     };
@@ -57,6 +58,7 @@ export default function WordList() {
                         id={item.id}
                         handleAddRow={handleAddRow}
                         handleInputChange={handleInputChange}
+                        inputValue={inputValue}
                     />
                 ))
             }
