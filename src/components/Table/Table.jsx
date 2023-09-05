@@ -33,13 +33,7 @@ export default function Table(props) {
 
     return (
         < div >
-            <div>
-                <p>Добавить новое слово</p>
-                <input type="text" value={props.inputValue} onChange={props.handleInputChange} />
-                <input type="text" value={props.inputValue} onChange={props.handleInputChange} />
-                <input type="text" value={props.inputValue} onChange={props.handleInputChange} />
-                <button onClick={props.handleAddRow}>Добавить</button>
-            </div>
+
             {
                 openInput ?
                     (

@@ -4,17 +4,24 @@ import { useState } from 'react';
 export default function WordList() {
 
     const [words, setWords] = useState(data);
-    const [inputValue, setInputValue] = useState('');// состояние  inputValue, которое хранит текущее значение ввода.
-
+    const [inputValueEnglish, setInputValueEnglish] = useState('');// состояние  inputValue, которое хранит текущее значение ввода.
+    const [inputValueTranscription, setInputValueTranscription] = useState('');
+    const [inputValueRussian, setInputValueRussian] = useState('');
     const handleInputChange = (e) => { //Функция handleInputChange обрабатывает изменения в поле ввода и обновляет состояние inputValue.
-        setInputValue(e.target.value);
+        setInputValueEnglish(e.target.value);
+        setInputValueTranscription(e.target.value);
+        setInputValueRussian(e.target.value);
+
     };
 
     const handleAddRow = () => { //
-        if (inputValue.trim() !== '') {
-            const newRow = { id: Date.now(), value: inputValue };
-            console.log(setWords([...words, newRow]));
-            setInputValue('');
+        if (inputValueEnglish.trim() || inputValueTranscription.trim() || inputValueRussian.trim() !== '') {
+            const newRow = { id: Date.now(), value: { inputValueEnglish, inputValueTranscription, inputValueRussian } };
+            setWords([...words, newRow]);
+            setInputValueEnglish('');
+            setInputValueTranscription('');
+            setInputValueRussian('');
+
         }
     };
 
@@ -44,6 +51,13 @@ export default function WordList() {
     return (
         <div >
             <h1>Список слов</h1>
+            <div>
+                <p>Добавить новое слово</p>
+                <input type="text" value={inputValueEnglish} onChange={handleInputChange} />
+                <input type="text" value={inputValueTranscription} onChange={handleInputChange} />
+                <input type="text" value={inputValueRussian} onChange={handleInputChange} />
+                <button onClick={handleAddRow}>Добавить</button>
+            </div>
             {
                 words.map((item, index, id) => (
                     <Table
@@ -58,7 +72,7 @@ export default function WordList() {
                         id={item.id}
                         handleAddRow={handleAddRow}
                         handleInputChange={handleInputChange}
-                        inputValue={inputValue}
+
                     />
                 ))
             }
