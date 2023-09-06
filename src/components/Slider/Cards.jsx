@@ -3,10 +3,8 @@ import st from './cards.module.scss';
 
 
 export default function Cards(props) {
-
     const [showTranslation, setShowTranslation] = useState(false);// состояние перевод не показан
     const handleShowTranslation = () => {
-
         setShowTranslation(!showTranslation);
     };
     useEffect(() => {  //use Effect следит за изменением пропсов
@@ -17,9 +15,6 @@ export default function Cards(props) {
             setShowTranslation(false)
         };
     }, [props.item]);
-
-
-
     return (
         <div className={st.cards}>
             <p className={st.cards_english}>{props.item.english}</p>
@@ -27,7 +22,6 @@ export default function Cards(props) {
             {
                 showTranslation == false ? <button onClick={handleShowTranslation} className={st.cards_button}>Показать перевод</button> : <p className={st.cards_transcription}>{props.item.russian}</p>
             }
-
             <p>Выученно: 0 слов</p>
         </div>
 
