@@ -52,4 +52,8 @@ $colorGreen: #7EB693;
     &_button:hover{
     background-color: $colorSgrey;     
 }
+&_button:focus{
+    background-color: $colorSgrey;     
+}
+
 }
