@@ -32,8 +32,10 @@ export default function Slider() {
     }
     function countStudiedWords() {// функция, которая считает количество изученных слов
         let copyStudiedWords = studiedWords
-        if (copyCount) {
+        if (copyCount) { // если новая карточка, то 
             console.log(copyStudiedWords + 1)
+            console.log(setStudiedWords(copyStudiedWords))
+
         }
         else console.log(copyStudiedWords);
 
@@ -47,8 +49,10 @@ export default function Slider() {
             <Cards
                 item={cards[count]}
                 countStudiedWords={countStudiedWords}
+
             />
             <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
+
         </div>
 
     )

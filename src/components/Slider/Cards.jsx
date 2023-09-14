@@ -6,8 +6,9 @@ export default function Cards(props) {
     const [showTranslation, setShowTranslation] = useState(false);// состояние перевод не показан
     const btnRef = useRef()
     useEffect(() => {
-        btnRef.current.focus()
-    })
+        btnRef.current.focus(null)
+
+    }, [])
     const handleShowTranslation = () => {
         setShowTranslation(!showTranslation);
     };
