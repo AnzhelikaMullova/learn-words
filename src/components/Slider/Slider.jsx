@@ -1,12 +1,11 @@
 import st from './slider.module.scss';
 import data from '../../data.json';
 import Cards from './Cards';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 export default function Slider() {
     const [cards, setCards] = useState(false)
     const [count, setCount] = useState(0)// состояние счетчика карты, берем нулевой индекс изначально
     const [studiedWords, setStudiedWords] = useState(0)// состояние, показывает сколько слов изученно за одну тренеровку
-
 
     useEffect(() => {
         setCards(data)
@@ -29,16 +28,10 @@ export default function Slider() {
             copyCount = 0
         }
         setCount(copyCount) // записываем в состояние
+
     }
     function countStudiedWords() {// функция, которая считает количество изученных слов
-        let copyStudiedWords = studiedWords
-        if (copyCount) { // если новая карточка, то 
-            console.log(copyStudiedWords + 1)
-            console.log(setStudiedWords(copyStudiedWords))
-
-        }
-        else console.log(copyStudiedWords);
-
+        setStudiedWords(studiedWords + 1)
     }
     if (!cards) {
         return <h1>Loading...</h1>

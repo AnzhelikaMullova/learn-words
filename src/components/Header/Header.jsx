@@ -49,14 +49,3 @@ export default function Header() {
 
     );
 }
-        // <div className={st.header}>
-        //     <img className={st.header_logo} src={logo} alt="logo" />
-        //     <nav className={st.header_nav}>
-        //         <ul className={st.header_nav_list}>
-        //             <li className={st.header_nav_list_item}>Карточки слов</li>
-        //             <li className={st.header_nav_list_item}>Список слов</li>
-        //             <li className={st.header_nav_list_item}>Выученные слова</li>
-        //         </ul>
-        //     </nav>
-        // <Route path="/learnedwords" element={<Users />} />
-        // </div>
