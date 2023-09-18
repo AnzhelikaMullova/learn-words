@@ -4,8 +4,7 @@ import st from './cards.module.scss';
 
 export default function Cards(props) {
     const [showTranslation, setShowTranslation] = useState(false);// состояние перевод не показан
-    const { english } = props;
-
+    const btnRef = useRef()
 
     useEffect(() => {  //use Effect следит за изменением пропсов
         if (!props.item) {
@@ -15,11 +14,10 @@ export default function Cards(props) {
             setShowTranslation(false)
         };
     }, [props.item]);
-    const btnRef = useRef()
-    useEffect(() => {
-        btnRef.current.focus()
 
-    }, [english])
+    useEffect(() => {
+        btnRef?.current?.focus(null);
+    })
     const handleShowTranslation = () => {
         setShowTranslation(!showTranslation);
     };

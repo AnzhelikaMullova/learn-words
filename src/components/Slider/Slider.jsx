@@ -42,6 +42,7 @@ export default function Slider() {
             <Cards
                 item={cards[count]}
                 countStudiedWords={countStudiedWords}
+                studiedWords={studiedWords}
 
             />
             <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
