@@ -1,6 +1,6 @@
 
 import st from './header.module.scss';
-import logo from '../../img/logo.png';
+import logo from '../../img/logo.svg';
 import {
     BrowserRouter as Router,
     Routes,

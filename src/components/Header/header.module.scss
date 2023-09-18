@@ -1,19 +1,21 @@
-$colorSgrey: #274C5B;
+$colorSgrey: #757575;
 $colorGreen: #7EB693;
+$colorBlack: #000000;
+
 .header {
 display: flex;
 margin: 0 auto;
-padding: 15px;
+padding: 35px;
 
 
 &_logo {
 margin-left: 55px;
-width: 170px; 
+width: 300px;
+height: 80px;
 }
-
 &_nav {
-width: 70vw;
-
+margin-left: 65px;
+width: 65vw;
 
 &_list {
 display: flex;
@@ -27,11 +29,11 @@ font-style: normal;
 font-weight: 600;
 font-size: 20px;
 line-height: 23px;
-color: $colorSgrey;
+color: $colorBlack;
 text-decoration: none;
 }
 &_item:hover {
-color: $colorGreen;
+color: $colorSgrey;
 }
 }
 }
