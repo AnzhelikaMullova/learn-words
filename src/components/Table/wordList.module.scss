@@ -2,33 +2,30 @@ $colorBlack: #000000;
 $colorSgrey: #757575;
 $colorCyan: #C3DCE3;
 $colorGrBlue: #2B788B;
-.table{
-
-    display: flex;
-    width: 90vw;
+.wordList{
+ &_description{
+      display: flex;
+      margin: 10px;
+      padding: 10px;
+      
+    }
+    &_titleNewWords{
+        font-family: 'Mulish', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 5px;
+        color: $colorBlack;
+        text-decoration: none;
+    }
+    &_input{
+        width: 170px;
+        height: 34px;
+        margin: 10px 10px;
+        border-radius: 15px;
+        border: 3px solid  $colorCyan;
    
-    &_word{
 
-        width: 170px;
-        height: 34px;
-        margin: 10px 10px;
-        border-radius: 15px;
-        border: 3px solid  $colorCyan;
-
-    }
-    &_tr{
-        width: 170px;
-        height: 34px;
-        margin: 10px 10px;
-        border-radius: 15px;
-        border: 3px solid  $colorCyan;
-    }
-    &_th{
-        width: 170px;
-        height: 34px;
-        margin: 10px 10px;
-        border-radius: 15px;
-        border: 3px solid  $colorCyan;
     }
     &_button{
         width: 170px;
@@ -44,5 +41,9 @@ $colorGrBlue: #2B788B;
         background-color: $colorCyan ;
         border-color: $colorCyan;
         border-radius: 15px;
+    }
+    &_imgtable{
+        width: 30vw;
+       
     }
 }

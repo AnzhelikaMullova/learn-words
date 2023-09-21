@@ -1,23 +1,39 @@
-$colorSgrey: #274C5B;
-$colorGreen: #7EB693;
+$colorBlack: #000000;
+$colorSgrey: #757575;
+$colorCyan: #C3DCE3;
+$colorGrBlue: #2B788B;
 .slider{
     display:  flex;
-    flex-wrap: wrap;
-    margin: 100px 330px;
+    margin-top: 20px;
+    padding: 50px;
 
+&_cards{
+    display:  flex;
+    flex-wrap: wrap;
+    width: 60vw;
+
+
+}
     &_button{
-        width: 120px;
-        height: 70px;
-     margin: 120px 30px;
-        font-family: 'Open Sans', sans-serif;
+        width: 170px;
+        height: 64px;
+        margin-top: 150px;
+        font-family: 'Mulish', sans-serif;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 15px;
-        line-height: 23px;
-        color: white;
-        background-color: $colorGreen;
-        border-color:$colorGreen;
+        line-height: 25px;
+        text-align: center;
+        color: $colorGrBlue;
+        background-color: $colorCyan ;
+        border-color: $colorCyan;
         border-radius: 15px;
 
+        
+
+    }
+    &_imgslider img{
+        width: 40vw;
+      
     }
 }

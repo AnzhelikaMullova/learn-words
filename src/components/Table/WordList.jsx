@@ -1,6 +1,9 @@
 import React, { useState } from 'react'; // Импорт React и useState
 import data from '../../data.json';
 import Table from './Table';
+import imgtable from '../../img/imgtable.png';
+import st from './wordList.module.scss';
+
 export default function WordList() {
     const [words, setWords] = useState(data);
     const [inputValueEnglish, setInputValueEnglish] = useState('');
@@ -24,8 +27,25 @@ export default function WordList() {
             setInputValueRussian(value);
         }
     }
+    const getChar = (event) => String.fromCharCode(event.keyCode || event.charCode)
 
-
+    function checkLang(event) {
+        const char = getChar(event)
+        const { name } = event.target;
+        if (name === 'newEnglish') {
+            if (rus.includes(char)) {
+                alert("Введите слово на английском языке")
+            }
+        } else if (name === 'newTranscription') {
+            if (rus.includes(char)) {
+                alert("Введите слово на английском языке")
+            }
+        } else if (name === 'newRussian') {
+            if (en.includes(char)) {
+                alert("Введите слово на русском языке")
+            }
+        }
+    }
 
     const handleInputChangeEnglish = (e) => {
         setInputValueEnglish(e.target.value);
@@ -77,15 +97,27 @@ export default function WordList() {
         return <h1>Loading...</h1>;
     }
     return (
-        <div>
-            <h1>Список слов</h1>
-            <div>
-                <p>Добавить новое слово</p>
-                <input type="text" name="newEnglish" value={inputValueEnglish} onChange={handleInputChangeEnglish} />
-                <input type="text" name="newTranscription" value={inputValueTranscription} onChange={handleInputChangeTranscription} />
-                <input type="text" name="newRussian" value={inputValueRussian} onChange={handleInputChangeRussian} />
-                <button onClick={handleAddRow}>Добавить</button>
+        <div className={st.wordList}>
+            <div className={st.wordList_description}>
+                <div className={st.wordList_newWords}>
+                    <p className={st.wordList_titleNewWords}>Добавить новое слово</p>
+                    <input className={st.wordList_input} type="text" name="newEnglish" value={inputValueEnglish} onKeyPress={checkLang} onChange={(e) => {
+                        handleInputChangeEnglish(e);
+                        handleChange(e);
+                    }} />
+                    < input className={st.wordList_input} type="text" name="newTranscription" value={inputValueTranscription} onKeyPress={checkLang} onChange={(e) => {
+                        handleInputChangeTranscription(e);
+                        handleChange(e);
+                    }} />
+                    <input className={st.wordList_input} type="text" name="newRussian" value={inputValueRussian} onKeyPress={checkLang} onChange={(e) => {
+                        handleInputChangeRussian(e);
+                        handleChange(e);
+                    }} />
+                    <button className={st.wordList_button} onClick={handleAddRow}>Добавить</button>
+                </div>
+                <img className={st.wordList_imgtable} src={imgtable} alt="imgtable" />
             </div>
+            <p className={st.wordList_titleWordList}>Список слов</p>
             {words.map((item, index) => (
                 <Table
                     key={item.id}

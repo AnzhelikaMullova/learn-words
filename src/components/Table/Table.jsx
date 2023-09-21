@@ -6,12 +6,6 @@ export default function Table(props) {
     const [valueTranscription, setValueTranscription] = useState('')
     const [valueRussian, setValueRussian] = useState('')
 
-
-
-
-
-
-
     useEffect(() => {
         setValueEnglish(props.english)
         setValueTranscription(props.transcription)

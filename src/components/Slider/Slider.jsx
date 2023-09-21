@@ -1,6 +1,7 @@
 import st from './slider.module.scss';
 import data from '../../data.json';
 import Cards from './Cards';
+import imgslider from '../../img/imgslider.png'
 import { useEffect, useState } from 'react';
 export default function Slider() {
     const [cards, setCards] = useState(false)
@@ -37,16 +38,20 @@ export default function Slider() {
         return <h1>Loading...</h1>
     }
     return (
-        <div className={st.slider}>
-            <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
-            <Cards
-                item={cards[count]}
-                countStudiedWords={countStudiedWords}
-                studiedWords={studiedWords}
+        <div div className={st.slider} >
+            <div className={st.slider_cards}>
+                <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
+                <Cards
+                    item={cards[count]}
+                    countStudiedWords={countStudiedWords}
+                    studiedWords={studiedWords}
 
-            />
-            <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
-
+                />
+                <button onClick={handleClickNext} className={st.slider_button}>Следующая карточка </button>
+            </div>
+            <div className={st.slider_imgslider}>
+                <img src={imgslider} alt="imgslider" />
+            </div>
         </div>
 
     )

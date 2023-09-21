@@ -1,59 +1,73 @@
-$colorSgrey: #274C5B;
-$colorGreen: #7EB693;
+$colorBlack: #000000;
+$colorSgrey: #757575;
+$colorCyan: #C3DCE3;
+$colorGrBlue: #2B788B;
+$colorPink: #945069;
 .cards{
-    border: 3px solid $colorSgrey;
+    border: 3px solid $colorBlack;
     width: 270px;
     height: 370px;
+    margin: 10px 30px;
     border-radius: 15px;
 
     &_english{
+        margin-top: 40px;
         font-family: 'Mulish', sans-serif;
         font-style: normal;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 25px;
         line-height: 23px;
         text-align: center;
-        color: $colorSgrey;
+        color: $colorBlack;
     }
     &_russian{
+        margin-top: 40px;
         font-family: 'Mulish', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
         line-height: 23px;
         text-align: center;
-        color: $colorSgrey;
+        color: $colorBlack;
 
     }
     &_transcription{
+        margin-top: 40px;
+        font-family: 'Mulish', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 23px;
+        text-align: center;
+        color: $colorBlack;
+    }
+    &_button{
+        width: 150px;
+        height: 64px;
+        margin-left: 60px;
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 15px;
+        color: white;
+        background-color: $colorGrBlue;
+        border-color:$colorGrBlue;
+        border-radius: 15px;
+
+    }
+    &_words{
+        margin-top: 40px;
         font-family: 'Mulish', sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
         line-height: 23px;
         text-align: center;
-        color: $colorSgrey;
+        color: $colorBlack;
     }
-    &_button{
-        width: 120px;
-        height: 70px;
-        margin-left: 70px;
-        font-family: 'Open Sans', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 15px;
-        line-height: 23px;
-        color: white;
-        background-color: $colorGreen;
-        border-color:$colorGreen;
-        border-radius: 15px;
-
-    }
-    &_button:hover{
-    background-color: $colorSgrey;     
+    &_button:focus{
+        background-color: $colorPink;  
+        border-color: $colorPink;   
 }
-&_button:focus{
-    background-color: $colorSgrey;     
-}
-
 }

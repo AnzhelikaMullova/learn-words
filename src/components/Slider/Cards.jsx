@@ -28,7 +28,7 @@ export default function Cards(props) {
             {
                 showTranslation === false ? <button ref={btnRef} onClick={() => { handleShowTranslation(); props.countStudiedWords() }} className={st.cards_button}>Показать перевод</button> : <p className={st.cards_transcription}>{props.item.russian}</p>
             }
-            <p>Выученно:{props.studiedWords}</p>
+            <p className={st.cards_words}>Выученно: {props.studiedWords}</p>
         </div>
 
     )
