@@ -47,11 +47,11 @@ export default function Table(props) {
                     ) :
                     (
                         <div>
-                            <input type='text' value={valueEnglish} onChange={handleEnglish} />
-                            <input type='text' value={valueTranscription} onChange={handleTranscription} />
-                            <input type='text' value={valueRussian} onChange={handleRussian} />
-                            <button onClick={cancelEditing} >Отмена редактирования</button>
-                            <button onClick={savePost}>Сохранить изменения</button>
+                            <input className={st.table_word} type='text' value={valueEnglish} onChange={handleEnglish} />
+                            <input className={st.table_word} type='text' value={valueTranscription} onChange={handleTranscription} />
+                            <input className={st.table_word} type='text' value={valueRussian} onChange={handleRussian} />
+                            <button className={st.table_button} onClick={cancelEditing} >Отмена редактирования</button>
+                            <button className={st.table_button} onClick={savePost}>Сохранить изменения</button>
                         </div>
                     )
             }
