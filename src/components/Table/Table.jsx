@@ -5,6 +5,8 @@ export default function Table(props) {
     const [valueEnglish, setValueEnglish] = useState('')
     const [valueTranscription, setValueTranscription] = useState('')
     const [valueRussian, setValueRussian] = useState('')
+    const [isValidEnglish, setIsValidEnglish] = useState(true)
+    const [isValidRussian, setIsValidRussian] = useState(true)
 
     useEffect(() => {
         setValueEnglish(props.english)
@@ -15,21 +17,25 @@ export default function Table(props) {
         setOpenInput(!openInput)
     }
     function handleEnglish(e) {
-        setValueEnglish(e.target.value)
+        const value = e.target.value
+        setValueEnglish(value)
+        setIsValidEnglish(/^[a-zA-Z]*$/.test(value))
     }
     function handleTranscription(e) {
         setValueTranscription(e.target.value)
     }
 
     function handleRussian(e) {
-        setValueRussian(e.target.value)
+        const value = e.target.value
+        setValueRussian(value)
+        setIsValidRussian(/^[а-яА-ЯёЁ]*$/.test(value))
     }
 
     function savePost() {
         props.editWordsPost(valueEnglish, valueTranscription, valueRussian, props.id);
         setOpenInput(!openInput)
     }
-
+    const isSaveDisabled = !valueEnglish || !valueTranscription || !valueRussian || !isValidEnglish || !isValidRussian;
 
     return (
         < div >
@@ -47,11 +53,19 @@ export default function Table(props) {
                     ) :
                     (
                         <div>
-                            <input className={st.table_word} type='text' value={valueEnglish} onChange={handleEnglish} />
+                            <input
+                                className={` ${st.table_word} ${(!isValidEnglish || !valueEnglish) && st.error && alert('Ошибка: вводите слова на английском языке')}`}
+                                type='text'
+                                value={valueEnglish}
+                                onChange={handleEnglish} />
                             <input className={st.table_word} type='text' value={valueTranscription} onChange={handleTranscription} />
-                            <input className={st.table_word} type='text' value={valueRussian} onChange={handleRussian} />
+                            <input
+                                className={` ${st.table_word} ${(!isValidRussian || !valueRussian) && st.error && alert('Ошибка: вводите слова на русском языке')}`}
+                                type='text'
+                                value={valueRussian}
+                                onChange={handleRussian} />
                             <button className={st.table_button} onClick={cancelEditing} >Отмена редактирования</button>
-                            <button className={st.table_button} onClick={savePost}>Сохранить изменения</button>
+                            <button className={st.table_button} disabled={isSaveDisabled} onClick={savePost}>Сохранить изменения</button>
                         </div>
                     )
             }

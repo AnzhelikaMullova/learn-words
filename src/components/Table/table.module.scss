@@ -2,6 +2,7 @@ $colorBlack: #000000;
 $colorSgrey: #757575;
 $colorCyan: #C3DCE3;
 $colorGrBlue: #2B788B;
+$colorPink: #945069;
 .table{
 
     display: flex;
@@ -30,6 +31,7 @@ $colorGrBlue: #2B788B;
         width: 150px;
         height: 55px;
         margin: 10px 10px;
+       
         border-radius: 15px;
         border: 3px solid  $colorCyan;
         text-align: center;
@@ -49,4 +51,7 @@ $colorGrBlue: #2B788B;
         border-color: $colorCyan;
         border-radius: 15px;
     }
+}
+.table_word.error{
+    border-color: $colorPink;
 }

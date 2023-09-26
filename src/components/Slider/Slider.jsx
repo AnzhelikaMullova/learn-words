@@ -38,7 +38,7 @@ export default function Slider() {
         return <h1>Loading...</h1>
     }
     return (
-        <div div className={st.slider} >
+        <div className={st.slider} >
             <div className={st.slider_cards}>
                 <button onClick={handleClickPrev} className={st.slider_button}>Предыдущая карточка </button>
                 <Cards

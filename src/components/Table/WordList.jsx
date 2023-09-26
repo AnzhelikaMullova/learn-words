@@ -10,43 +10,6 @@ export default function WordList() {
     const [inputValueTranscription, setInputValueTranscription] = useState('');
     const [inputValueRussian, setInputValueRussian] = useState('');
 
-    const rusLower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-    const rusUpper = rusLower.toUpperCase()
-    const enLower = 'abcdefghijklmnopqrstuvwxyz'
-    const enUpper = enLower.toUpperCase()
-    const rus = rusLower + rusUpper
-    const en = enLower + enUpper
-
-    function handleChange(event) {
-        const { name, value } = event.target;
-        if (name === 'newEnglish') {
-            setInputValueEnglish(value);
-        } else if (name === 'newTranscription') {
-            setInputValueTranscription(value);
-        } else if (name === 'newRussian') {
-            setInputValueRussian(value);
-        }
-    }
-    const getChar = (event) => String.fromCharCode(event.keyCode || event.charCode)
-
-    function checkLang(event) {
-        const char = getChar(event)
-        const { name } = event.target;
-        if (name === 'newEnglish') {
-            if (rus.includes(char)) {
-                alert("Введите слово на английском языке")
-            }
-        } else if (name === 'newTranscription') {
-            if (rus.includes(char)) {
-                alert("Введите слово на английском языке")
-            }
-        } else if (name === 'newRussian') {
-            if (en.includes(char)) {
-                alert("Введите слово на русском языке")
-            }
-        }
-    }
-
     const handleInputChangeEnglish = (e) => {
         setInputValueEnglish(e.target.value);
     };
@@ -101,17 +64,17 @@ export default function WordList() {
             <div className={st.wordList_description}>
                 <div className={st.wordList_newWords}>
                     <p className={st.wordList_titleNewWords}>Добавить новое слово</p>
-                    <input className={st.wordList_input} type="text" name="newEnglish" value={inputValueEnglish} onKeyPress={checkLang} onChange={(e) => {
+                    <input className={st.wordList_input} type="text" name="newEnglish" value={inputValueEnglish} onChange={(e) => {
                         handleInputChangeEnglish(e);
-                        handleChange(e);
+
                     }} />
-                    < input className={st.wordList_input} type="text" name="newTranscription" value={inputValueTranscription} onKeyPress={checkLang} onChange={(e) => {
+                    < input className={st.wordList_input} type="text" name="newTranscription" value={inputValueTranscription} onChange={(e) => {
                         handleInputChangeTranscription(e);
-                        handleChange(e);
+
                     }} />
-                    <input className={st.wordList_input} type="text" name="newRussian" value={inputValueRussian} onKeyPress={checkLang} onChange={(e) => {
+                    <input className={st.wordList_input} type="text" name="newRussian" value={inputValueRussian} onChange={(e) => {
                         handleInputChangeRussian(e);
-                        handleChange(e);
+
                     }} />
                     <button className={st.wordList_button} onClick={handleAddRow}>Добавить</button>
                 </div>

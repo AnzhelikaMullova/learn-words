@@ -3,9 +3,9 @@ $colorSgrey: #757575;
 $colorCyan: #C3DCE3;
 $colorGrBlue: #2B788B;
 .wordList{
- &_description{
+    &_description{
     display: flex;
-   margin-left: 55px;
+    margin-left: 55px;
     padding: 10px;
     }
     &_titleNewWords{
@@ -44,5 +44,16 @@ $colorGrBlue: #2B788B;
     &_imgtable{
         width: 30vw;
         margin: 0 auto;
+    }
+    &_titleWordList{
+        margin-left: 60px;
+        font-family: 'Mulish', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 5px;
+        color: $colorBlack;
+        text-decoration: none;
+
     }
 }
