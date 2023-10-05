@@ -19,7 +19,11 @@ export default function Table(props) {
     function handleEnglish(e) {
         const value = e.target.value
         setValueEnglish(value)
-        setIsValidEnglish(/^[a-zA-Z]*$/.test(value))
+        const isValid = /^[a-zA-Z]*$/.test(value)
+        setIsValidEnglish(isValid)
+        if (!isValid) {
+            alert('Ошибка:вводите слова на английском языке')
+        }
     }
     function handleTranscription(e) {
         setValueTranscription(e.target.value)
@@ -28,7 +32,11 @@ export default function Table(props) {
     function handleRussian(e) {
         const value = e.target.value
         setValueRussian(value)
-        setIsValidRussian(/^[а-яА-ЯёЁ]*$/.test(value))
+        const isValid = /^[а-яА-ЯёЁ]*$/.test(value)
+        setIsValidRussian(isValid)
+        if (!isValid) {
+            alert('Ошибка:вводите слова на русском языке')
+        }
     }
 
     function savePost() {
@@ -54,13 +62,13 @@ export default function Table(props) {
                     (
                         <div>
                             <input
-                                className={` ${st.table_word} ${(!isValidEnglish || !valueEnglish) && st.error && alert('Ошибка: вводите слова на английском языке')}`}
+                                className={` ${st.table_word} ${(!isValidEnglish || !valueEnglish) && st.error}`}
                                 type='text'
                                 value={valueEnglish}
                                 onChange={handleEnglish} />
                             <input className={st.table_word} type='text' value={valueTranscription} onChange={handleTranscription} />
                             <input
-                                className={` ${st.table_word} ${(!isValidRussian || !valueRussian) && st.error && alert('Ошибка: вводите слова на русском языке')}`}
+                                className={` ${st.table_word} ${(!isValidRussian || !valueRussian) && st.error}`}
                                 type='text'
                                 value={valueRussian}
                                 onChange={handleRussian} />
