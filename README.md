@@ -1,10 +1,7 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+# Изучаем английские слова
+Приложение React для изучения английских слов.  
+## Обзор
+Приложение для изучения языка - это веб-приложение, предназначенное для того, чтобы помочь пользователям изучать и практиковать новые слова на иностранном языке. В этом README представлен обзор целей проекта, функций и используемых технологий.
 
 ### `npm start`
 
