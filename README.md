@@ -27,3 +27,4 @@ GitHub: контроль версий и управление проектами
 
 ### Технологии:
 
+(https://github.com/AnzhelikaMullova/learn-words/blob/master/css.png)
