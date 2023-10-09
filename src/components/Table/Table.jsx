@@ -23,6 +23,7 @@ export default function Table(props) {
         setIsValidEnglish(isValid)
         if (!isValid) {
             alert('Ошибка:вводите слова на английском языке')
+            setValueEnglish('')
         }
     }
     function handleTranscription(e) {
@@ -36,6 +37,7 @@ export default function Table(props) {
         setIsValidRussian(isValid)
         if (!isValid) {
             alert('Ошибка:вводите слова на русском языке')
+            setIsValidRussian('')
         }
     }
 
@@ -60,7 +62,7 @@ export default function Table(props) {
                         </div >
                     ) :
                     (
-                        <div>
+                        <div className={st.table}>
                             <input
                                 className={` ${st.table_word} ${(!isValidEnglish || !valueEnglish) && st.error}`}
                                 type='text'
