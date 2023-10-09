@@ -1,8 +1,6 @@
-$colorBlack: #000000;
-$colorSgrey: #757575;
-$colorCyan: #C3DCE3;
-$colorGrBlue: #2B788B;
-$colorPink: #945069;
+
+@import '../../style/vars.scss';
+
 .cards{
     border: 3px solid $colorBlack;
     width: 270px;

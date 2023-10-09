@@ -1,7 +1,5 @@
-$colorBlack: #000000;
-$colorSgrey: #757575;
-$colorCyan: #C3DCE3;
-$colorGrBlue: #2B788B;
+
+@import '../../style/vars.scss';
 .slider{
     display:  flex;
     margin-top: 20px;
