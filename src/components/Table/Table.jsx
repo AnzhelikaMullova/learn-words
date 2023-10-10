@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import st from './table.module.scss';
+import { handleEnglish } from '../../utils/validation';
+import { handleRussian } from '../../utils/validation'
 export default function Table(props) {
     const [openInput, setOpenInput] = useState(true)
     const [valueEnglish, setValueEnglish] = useState('')
@@ -16,30 +18,30 @@ export default function Table(props) {
     function cancelEditing() { //функция отмена редактировнаия
         setOpenInput(!openInput)
     }
-    function handleEnglish(e) {
-        const value = e.target.value
-        setValueEnglish(value)
-        const isValid = /^[a-zA-Z]*$/.test(value)
-        setIsValidEnglish(isValid)
-        if (!isValid) {
-            alert('Ошибка:вводите слова на английском языке')
-            setValueEnglish('')
-        }
-    }
+    // function handleEnglish(e) {
+    //     const value = e.target.value
+    //     setValueEnglish(value)
+    //     const isValid = /^[a-zA-Z]*$/.test(value)
+    //     setIsValidEnglish(isValid)
+    //     if (!isValid) {
+    //         alert('Ошибка:вводите слова на английском языке')
+    //         setValueEnglish('')
+    //     }
+    // }
     function handleTranscription(e) {
         setValueTranscription(e.target.value)
     }
 
-    function handleRussian(e) {
-        const value = e.target.value
-        setValueRussian(value)
-        const isValid = /^[а-яА-ЯёЁ]*$/.test(value)
-        setIsValidRussian(isValid)
-        if (!isValid) {
-            alert('Ошибка:вводите слова на русском языке')
-            setIsValidRussian('')
-        }
-    }
+    // function handleRussian(e) {
+    //     const value = e.target.value
+    //     setValueRussian(value)
+    //     const isValid = /^[а-яА-ЯёЁ]*$/.test(value)
+    //     setIsValidRussian(isValid)
+    //     if (!isValid) {
+    //         alert('Ошибка:вводите слова на русском языке')
+    //         setIsValidRussian('')
+    //     }
+    // }
 
     function savePost() {
         props.editWordsPost(valueEnglish, valueTranscription, valueRussian, props.id);
