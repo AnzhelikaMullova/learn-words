@@ -28,7 +28,6 @@
 
 ### Приступая к работе
 
-
 1. Чтобы запустить этот проект локально, выполните следующие действия.
 2. Клонируйте этот репозиторий на свой локальный компьютер: <https://github.com/AnzhelikaMullova/learn-words>.
 3. Установите необходимые зависимости с помощью npm install.
@@ -37,8 +36,7 @@
 
 ### Технологии
 
-![html](html.png)![css](css.png)![js](js.png)![react](react.png)
-<code><img height="20" src="html.png"></code>
-<code><img height="20" src="css.png"></code>
-<code><img height="25" src="js.png"></code>
-<code><img height="25" src="react.png"></code>
+<code><img height="50" src="html.png"></code>
+<code><img height="50" src="css.png"></code>
+<code><img height="40" src="js.png"></code>
+<code><img height="45" src="react.png"></code>
