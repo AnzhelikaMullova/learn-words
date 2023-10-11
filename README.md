@@ -29,16 +29,16 @@
 ### Приступая к работе
 
 
-  :one:     Чтобы запустить этот проект локально, выполните следующие действия:
-
-  :two:Клонируйте этот репозиторий на свой локальный компьютер: <https://github.com/AnzhelikaMullova/learn-words>.
-
-  :three:Установите необходимые зависимости с помощью npm install.
-
-  :four: Запустите сервер разработки с помощью npm start.
-
-  :five:  Откройте ваш браузер и перейдите к <http://localhost:3000>.
+1. Чтобы запустить этот проект локально, выполните следующие действия.
+2. Клонируйте этот репозиторий на свой локальный компьютер: <https://github.com/AnzhelikaMullova/learn-words>.
+3. Установите необходимые зависимости с помощью npm install.
+4. Запустите сервер разработки с помощью npm start.
+5. Откройте ваш браузер и перейдите к <http://localhost:3000>.
 
 ### Технологии
 
 ![html](html.png)![css](css.png)![js](js.png)![react](react.png)
+<code><img height="20" src="html.png"></code>
+<code><img height="20" src="css.png"></code>
+<code><img height="25" src="js.png"></code>
+<code><img height="25" src="react.png"></code>
